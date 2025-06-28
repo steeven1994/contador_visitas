@@ -1,0 +1,261 @@
+/* --- Estilos Generales para toda la página --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6; /* Espaciado entre líneas para mejor legibilidad */
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px; /* Ancho máximo para el contenido principal */
+    margin: 20px auto; /* Centra el contenido principal en la página */
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05); /* Sombra sutil para el contenedor principal */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: white;
+    font-size: 0.9em;
+}
+
+/* --- Estilos para la Sección de Bienvenida (Hero) --- */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #f8f9fa; /* Fondo claro */
+    margin-bottom: 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.03); /* Sombra ligera */
+}
+
+.hero-section h2 {
+    font-size: 2.8em;
+    color: #212529;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.3em;
+    color: #6c757d;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- Estilos del Menú Desplegable --- */
+.main-nav {
+    background-color: #444;
+}
+
+.menu {
+    list-style: none; /* Elimina los puntos de la lista */
+    margin: 0;
+    padding: 0;
+    display: flex; /* Para que los elementos del menú se alineen horizontalmente */
+    justify-content: center; /* Centra los elementos del menú */
+}
+
+.menu-item {
+    position: relative; /* Crucial para posicionar el submenú con 'absolute' */
+}
+
+.menu-item a {
+    display: block; /* Hace que todo el área del 'li' sea clicable */
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none; /* Elimina el subrayado de los enlaces */
+    transition: background-color 0.3s ease; /* Suaviza el cambio de color al pasar el ratón */
+}
+
+.menu-item a:hover {
+    background-color: #555;
+}
+
+/* Estilos para el Submenú (inicialmente oculto) */
+.submenu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background-color: #666;
+    position: absolute; /* Se posiciona en relación con su padre (.menu-item) */
+    top: 100%; /* Justo debajo del elemento principal */
+    left: 0;
+    min-width: 180px; /* Ancho mínimo para los elementos del submenú */
+    z-index: 1000; /* Asegura que el submenú esté por encima de otros contenidos */
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2); /* Sombra para un efecto flotante */
+
+    /* Propiedades para ocultar el submenú y preparar la animación */
+    display: none; /* Lo oculta completamente */
+    opacity: 0; /* Para una transición de desvanecimiento */
+    transform: translateY(10px); /* Para una transición de deslizamiento */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Define la duración y tipo de animación */
+}
+
+.submenu li a {
+    padding: 10px 20px;
+    color: white;
+    white-space: nowrap; /* Evita que el texto de los subelementos se rompa en varias líneas */
+}
+
+.submenu li a:hover {
+    background-color: #777;
+}
+
+/* Clase añadida por JavaScript para mostrar el submenú */
+.menu-item.active .submenu {
+    display: block; /* Hace visible el submenú */
+    opacity: 1; /* Lo hace completamente opaco */
+    transform: translateY(0); /* Lo mueve a su posición original (sin deslizamiento) */
+}
+
+/* --- Estilos del Contador de Visitas --- */
+.visits-section {
+    text-align: center;
+    padding: 30px;
+    background-color: #e9ecef; /* Fondo ligeramente gris */
+    border-radius: 8px;
+    margin-bottom: 40px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombra interna para un efecto de profundidad */
+}
+
+.visits-section h3 {
+    color: #495057;
+    margin-bottom: 15px;
+}
+
+.visits-display {
+    font-size: 2.5em; /* Tamaño grande para el número */
+    font-weight: bold;
+    color: #007bff; /* Color azul distintivo */
+    margin-bottom: 10px;
+}
+
+.visits-display span {
+    display: inline-block;
+    background-color: #d1e7dd; /* Fondo verde claro para el número */
+    padding: 5px 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.visits-section .note {
+    font-size: 0.9em;
+    color: #6c757d;
+}
+
+/* --- Estilos del Formulario de Contacto --- */
+.contact-form-container {
+    max-width: 600px;
+    margin: 40px auto; /* Centra el formulario */
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #dee2e6; /* Borde sutil */
+}
+
+.contact-form-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block; /* La etiqueta ocupa toda la línea, el input va debajo */
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: calc(100% - 24px); /* 100% del padre menos el padding horizontal */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Asegura que padding y border se incluyan en el 'width' */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Borde azul al enfocar */
+    outline: none; /* Elimina el contorno de enfoque predeterminado del navegador */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Sombra de enfoque */
+}
+
+.form-group textarea {
+    resize: vertical; /* Permite redimensionar verticalmente */
+}
+
+button[type="submit"] {
+    display: block; /* El botón ocupa todo el ancho */
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Mensajes de error */
+.error-message {
+    color: #dc3545; /* Rojo fuerte para errores */
+    font-size: 0.9em;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Mensajes de éxito */
+.success-message {
+    color: #28a745; /* Verde para éxito */
+    font-size: 1.1em;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #d4edda; /* Fondo verde claro */
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+    display: none; /* Oculto por defecto, JavaScript lo mostrará */
+}
+
+/* Clases añadidas por JavaScript para indicar el estado de validación visualmente */
+.form-group.invalid input,
+.form-group.invalid textarea {
+    border-color: #dc3545; /* Borde rojo para campos inválidos */
+}
+
+.form-group.valid input,
+.form-group.valid textarea {
+    border-color: #28a745; /* Borde verde para campos válidos */
+}
